@@ -1,15 +1,11 @@
 import React from "react";
 import Hello from "./Hello";
 import Wrapper from "./Wrapper";
+import Counter from "./Counter";
 import "./App.css";
 
 function App() {
-  return (
-    <Wrapper>
-      <Hello name="react" color="red" isSpecial />
-      <Hello color="pink" />
-    </Wrapper>
-  );
+  return <Counter />;
 }
 
 export default App;
