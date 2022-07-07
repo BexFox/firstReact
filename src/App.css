@@ -1,5 +1,10 @@
-.gray-box {
-  background: gray;
-  width: 64px;
-  height: 64px;
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: nowrap column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
