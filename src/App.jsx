@@ -1,7 +1,12 @@
 import React, { useState, useRef } from 'react';
-import CreateUser from './CreateUser';
-import UserList from './UserList';
-
-function App() {}
+import InputSample from './InputSample';
+import './App.css';
+function App() {
+  return (
+    <div className='App'>
+      <InputSample />
+    </div>
+  );
+}
 
 export default App;

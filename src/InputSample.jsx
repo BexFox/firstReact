@@ -1,56 +1,47 @@
-import React, { useState, useRef } from "react";
-
+import React, { useState, useRef } from 'react';
 function InputSample() {
   const [inputs, setInputs] = useState({
-    name: "",
-    nickname: "",
+    name: '',
+    nickname: '',
   });
-  const nameInput = useRef(); // @@1
-  const nicknameInput = useRef(); // @@1-2
-
   const { name, nickname } = inputs;
+  const nameInput = useRef();
 
   const onChange = (e) => {
     const { name, value } = e.target;
     setInputs({
       ...inputs,
       [name]: value,
-      // #1 if [name]:'corea', which result will be?
     });
   };
-
   const onReset = () => {
     setInputs({
-      name: "",
-      nickname: "",
+      name: '',
+      nickname: '',
     });
-    nicknameInput.current.focus(); //@@2
+    nameInput.current.focus();
   };
 
   return (
-    <div>
+    <div className='InputSample'>
       <input
-        name="name"
-        placeholder="name"
-        onChange={onChange}
+        name='name'
+        placeholder='Name'
         value={name}
-        ref={nameInput} //@@3
+        onChange={onChange}
+        ref={nameInput}
         autoFocus
       />
       <input
-        name="nickname"
-        placeholder="nickname"
-        onChange={onChange}
+        name='nickname'
+        placeholder='NickName'
         value={nickname}
-        ref={nicknameInput} //@@3-2
+        onChange={onChange}
       />
       <button onClick={onReset}>Initialization</button>
       <div>
         <b>Value: </b>
-        <div>
-          Name: {name} <br />
-          Nickname: ({nickname})
-        </div>
+        {name} ({nickname})
       </div>
     </div>
   );
