@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function User({ user }) {
   return (
@@ -8,13 +8,31 @@ function User({ user }) {
   );
 }
 
-function UserList({ users }) {
+function UserList() {
+  const users = [
+    {
+      id: 1,
+      username: 'velopert',
+      email: 'public.velopert@gmail.com',
+    },
+    {
+      id: 2,
+      username: 'tester',
+      email: 'tester@example.com',
+    },
+    {
+      id: 3,
+      username: 'liz',
+      email: 'liz@example.com',
+    },
+  ];
   return (
-    <div className="UserList">
+    <>
       {users.map((v) => (
         <User user={v} key={v.id} />
       ))}
-    </div>
+    </>
   );
 }
+
 export default UserList;
