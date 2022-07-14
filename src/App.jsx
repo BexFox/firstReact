@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 import './App.css';
+
 function App() {
   const [inputs, setInputs] = useState({
     username: '',
@@ -15,7 +16,7 @@ function App() {
       [name]: value,
     });
   };
-  const users = [
+  const [users, setUsers] = useState([
     {
       id: 1,
       username: 'velopert',
@@ -31,12 +32,17 @@ function App() {
       username: 'liz',
       email: 'liz@example.com',
     },
-  ];
+  ]);
 
   const nextId = useRef(4);
   const onCreate = () => {
-    // Logic which will be put later
-    // ...
+    const user = {
+      id: nextId.current,
+      username,
+      email,
+    };
+    setUsers(users.concat(user));
+
     setInputs({
       username: '',
       email: '',
@@ -44,6 +50,9 @@ function App() {
     nextId.current += 1;
   };
 
+  const onRemove = (id) => {
+    setUsers(users.filter((v) => v.id !== id));
+  };
   return (
     <div className='App'>
       <CreateUser
@@ -52,7 +61,7 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} />
+      <UserList users={users} onRemove={onRemove} />
     </div>
   );
 }

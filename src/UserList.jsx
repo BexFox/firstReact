@@ -1,18 +1,19 @@
 import React from 'react';
 
-function User({ user }) {
+function User({ user, onRemove }) {
   return (
     <div>
       <b>{user.username}</b> <span>({user.email})</span>
+      <button onClick={() => onRemove(user.id)}>Remove</button>
     </div>
   );
 }
 
-function UserList({ users }) {
+function UserList({ users, onRemove }) {
   return (
     <>
       {users.map((v) => (
-        <User user={v} key={v.id} />
+        <User user={v} key={v.id} onRemove={onRemove} />
       ))}
     </>
   );
